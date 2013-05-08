@@ -11,10 +11,7 @@ trait Solver extends GameDef {
    * Returns `true` if the block `b` is at the final position
    */
   def done(b: Block): Boolean = {
-    if (b.isStanding && b.b1.x == goal.x && b.b1.y == goal.y)
-      true
-    else
-      false
+    (b.isStanding && b.b1.x == goal.x && b.b1.y == goal.y)
   }
 
   /**
