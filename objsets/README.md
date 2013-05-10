@@ -6,6 +6,7 @@ For this part, you will earn credit by completing the `TweetSet.scala` file. Thi
 Note also that these classes are immutable: the `set-theoretic` operations do not modify this but should return a new set.
 
 Before tackling this assignment, we suggest you first study the already implemented methods `contains` and `incl` for inspiration.
+
 1. Filtering   
 
 2. Taking Unions
