@@ -7,6 +7,9 @@ Note also that these classes are immutable: the `set-theoretic` operations do no
 
 Before tackling this assignment, we suggest you first study the already implemented methods `contains` and `incl` for inspiration.
 1. Filtering   
+
 2. Taking Unions
+
 3. Sorting Tweets by Their Influence
+
 4. Tying everything together
