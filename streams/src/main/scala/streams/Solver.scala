@@ -31,7 +31,9 @@ trait Solver extends GameDef {
    * that are inside the terrain.
    */
   def neighborsWithHistory(b: Block, history: List[Move]): Stream[(Block, List[Move])] = {
-    val result = (b.left, Left::history) :: (b.right, Right::history) :: (b.up, Up::history) :: (b.down, Down::history)::List()
+    val possible = List((b.left, Left::history), (b.right, Right::history), (b.up, Up::history), (b.down, Down::history))
+    
+    val result = for(elem <- possible; if(elem._1.isLegal)) yield elem
     result.toStream
   }
 
@@ -96,7 +98,7 @@ trait Solver extends GameDef {
    * with the history how it was reached.
    */
   lazy val pathsToGoal: Stream[(Block, List[Move])] = {
-    for (elem <- pathsFromStart; if (elem._1.b1.x == goal.x && elem._1.b1.y == goal.y)) yield elem
+    for (elem <- pathsFromStart; if (elem._1.isStanding && elem._1.b1.x == goal.x && elem._1.b1.y == goal.y)) yield elem
   }
 
   /**
